@@ -4,6 +4,7 @@ import {  useLocation, NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 
 import sidebarImage from "../../../assets/img/sidebar-3.jpg";
+import { Analytics } from 'aws-amplify';
 
 
 const SidebarPanel=(props)=> {
@@ -13,6 +14,16 @@ const SidebarPanel=(props)=> {
     const activeRoute = (routeName) => {
       return location.pathname.indexOf(routeName) > -1 ? "active" : "";
     };
+    // Auth.currentAuthenticatedUser()
+    const recordEvent=()=>{
+      console.log('Recording event!!')
+      Analytics.record({
+        name: 'Dashboard Event 1',
+        attributes:{
+          username:"archer"
+        }
+      })
+    }
   
   return (
     <div className="sidebar"  data-color='black'>
@@ -23,7 +34,7 @@ const SidebarPanel=(props)=> {
         }}
       />
       <div className="sidebar-wrapper">
-        <div className="logo d-flex align-items-center justify-content-start">
+        <div className="logo d-flex align-items-center justify-content-start" onClick={recordEvent}>
           <a
             href="https://www.creative-tim.com?ref=lbd-sidebar"
             className="simple-text logo-mini mx-1"
