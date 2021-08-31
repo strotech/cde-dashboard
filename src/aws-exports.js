@@ -23,7 +23,14 @@ const awsmobile = {
         "passwordPolicyCharacters": []
     },
     "aws_mobile_analytics_app_id": "28e217bc49524629b70d22309590ef27",
-    "aws_mobile_analytics_app_region": "us-east-1"
+    "aws_mobile_analytics_app_region": "us-east-1",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "twittercovid",
+            "endpoint": "https://ppysvwoqui.execute-api.us-east-1.amazonaws.com/dev",
+            "region": "us-east-1"
+        }
+    ]
 };
 
 

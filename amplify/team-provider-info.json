@@ -14,6 +14,16 @@
     "categories": {
       "auth": {
         "cdedashboard9cbab043": {}
+      },
+      "function": {
+        "twittercovid": {
+          "deploymentBucketName": "amplify-cdedashboard-dev-131425-deployment",
+          "s3Key": "amplify-builds/twittercovid-50594137786a6a645646-build.zip"
+        },
+        "twitterflood": {
+          "deploymentBucketName": "amplify-cdedashboard-dev-131425-deployment",
+          "s3Key": "amplify-builds/twitterflood-495571694e4d425a4141-build.zip"
+        }
       }
     }
   }
