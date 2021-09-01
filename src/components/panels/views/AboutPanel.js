@@ -6,6 +6,7 @@ const AboutSidebarPanel =()=> {
     useEffect(()=>{
       API.get('twittercovid','/twitter/covid').then(res=>console.log(res));
       API.get('twittercovid','/twitter/flood').then(res=>console.log(res));
+      API.get('twittercovid','/telegram/covid').then(res=>console.log(res));
     },[]);
     return (
       <div>
