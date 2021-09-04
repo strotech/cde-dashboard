@@ -3,17 +3,10 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
-    "aws_cloud_logic_custom": [
-        {
-            "name": "twittercovid",
-            "endpoint": "https://v0jthppmtj.execute-api.us-east-1.amazonaws.com/dev",
-            "region": "us-east-1"
-        }
-    ],
-    "aws_cognito_identity_pool_id": "us-east-1:550a32a7-4332-484e-a8fc-303a1b0522e0",
+    "aws_cognito_identity_pool_id": "us-east-1:5f5f9532-fab1-4682-b034-188b83166bad",
     "aws_cognito_region": "us-east-1",
-    "aws_user_pools_id": "us-east-1_gQcZbEVCt",
-    "aws_user_pools_web_client_id": "2bi35rf3r73o35h24jovbmk2d4",
+    "aws_user_pools_id": "us-east-1_SHbC1wpOM",
+    "aws_user_pools_web_client_id": "5lnnhfs9g4dinmeej6ccsvnt0h",
     "oauth": {},
     "aws_cognito_login_mechanisms": [
         "EMAIL"
@@ -29,8 +22,15 @@ const awsmobile = {
         "passwordPolicyMinLength": 8,
         "passwordPolicyCharacters": []
     },
-    "aws_mobile_analytics_app_id": "28e217bc49524629b70d22309590ef27",
-    "aws_mobile_analytics_app_region": "us-east-1"
+    "aws_mobile_analytics_app_id": "9f0927cd93ec4dac9b602ddda051be7a",
+    "aws_mobile_analytics_app_region": "us-east-1",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "cdedashboardapi",
+            "endpoint": "https://g6yemt9011.execute-api.us-east-1.amazonaws.com/dev",
+            "region": "us-east-1"
+        }
+    ]
 };
 
 

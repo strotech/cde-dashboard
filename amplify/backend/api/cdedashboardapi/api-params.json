@@ -2,7 +2,7 @@
   "paths": [
     {
       "name": "/twitter/covid",
-      "lambdaFunction": "twitterlambda",
+      "lambdaFunction": "twitter",
       "privacy": {
         "open": true
       },
@@ -10,7 +10,7 @@
     },
     {
       "name": "/twitter/flood",
-      "lambdaFunction": "twitterlambda",
+      "lambdaFunction": "twitter",
       "privacy": {
         "open": true
       },
@@ -18,7 +18,7 @@
     },
     {
       "name": "/telegram/covid",
-      "lambdaFunction": "telegramlambda",
+      "lambdaFunction": "telegram",
       "privacy": {
         "open": true
       },
@@ -29,22 +29,22 @@
   "apiName": "cdedashboardapi",
   "functionArns": [
     {
-      "lambdaFunction": "twitterlambda"
+      "lambdaFunction": "twitter"
     },
     {
-      "lambdaFunction": "telegramlambda"
+      "lambdaFunction": "telegram"
     }
   ],
   "privacy": {
     "auth": 0,
     "unauth": 0,
-    "authRoleName": "amplify-cdedashboard-dev-183234-authRole",
-    "unAuthRoleName": "amplify-cdedashboard-dev-183234-unauthRole"
+    "authRoleName": "amplify-cdedashboard-dev-200835-authRole",
+    "unAuthRoleName": "amplify-cdedashboard-dev-200835-unauthRole"
   },
   "dependsOn": [
     {
       "category": "function",
-      "resourceName": "twitterlambda",
+      "resourceName": "twitter",
       "attributes": [
         "Name",
         "Arn"
@@ -52,7 +52,7 @@
     },
     {
       "category": "function",
-      "resourceName": "telegramlambda",
+      "resourceName": "telegram",
       "attributes": [
         "Name",
         "Arn"

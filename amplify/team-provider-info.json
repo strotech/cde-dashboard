@@ -1,25 +1,28 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-cdedashboard-dev-183234-authRole",
-      "UnauthRoleArn": "arn:aws:iam::465392140585:role/amplify-cdedashboard-dev-183234-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::465392140585:role/amplify-cdedashboard-dev-183234-authRole",
+      "AuthRoleName": "amplify-cdedashboard-dev-200835-authRole",
+      "UnauthRoleArn": "arn:aws:iam::465392140585:role/amplify-cdedashboard-dev-200835-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::465392140585:role/amplify-cdedashboard-dev-200835-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-cdedashboard-dev-183234-deployment",
-      "UnauthRoleName": "amplify-cdedashboard-dev-183234-unauthRole",
-      "StackName": "amplify-cdedashboard-dev-183234",
-      "StackId": "arn:aws:cloudformation:us-east-1:465392140585:stack/amplify-cdedashboard-dev-183234/4feab6c0-0d80-11ec-ad67-0a9de142f3dd",
-      "AmplifyAppId": "d214cp96i86whv"
+      "DeploymentBucketName": "amplify-cdedashboard-dev-200835-deployment",
+      "UnauthRoleName": "amplify-cdedashboard-dev-200835-unauthRole",
+      "StackName": "amplify-cdedashboard-dev-200835",
+      "StackId": "arn:aws:cloudformation:us-east-1:465392140585:stack/amplify-cdedashboard-dev-200835/b958b0f0-0d8d-11ec-873a-12c05f176271",
+      "AmplifyAppId": "dc0yug2th1u8r"
     },
     "categories": {
+      "auth": {
+        "cdedashboardab676150": {}
+      },
       "function": {
-        "twitterlambda": {
-          "deploymentBucketName": "amplify-cdedashboard-dev-183234-deployment",
-          "s3Key": "amplify-builds/twitterlambda-2b6f374b4e2b6870414b-build.zip"
+        "twitter": {
+          "deploymentBucketName": "amplify-cdedashboard-dev-200835-deployment",
+          "s3Key": "amplify-builds/twitter-79504853726f68665877-build.zip"
         },
-        "telegramlambda": {
-          "deploymentBucketName": "amplify-cdedashboard-dev-183234-deployment",
-          "s3Key": "amplify-builds/telegramlambda-5a7457796e7a4a47724b-build.zip"
+        "telegram": {
+          "deploymentBucketName": "amplify-cdedashboard-dev-200835-deployment",
+          "s3Key": "amplify-builds/telegram-334873756b434a32364b-build.zip"
         }
       }
     }

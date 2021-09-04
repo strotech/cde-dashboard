@@ -1,0 +1,21 @@
+{
+    "appName": "cdedashboard",
+    "roleName": "pinpointLambdaRoled4f0effd",
+    "cloudformationPolicyName": "cloudformationPolicyd4f0effd",
+    "cloudWatchPolicyName": "cloudWatchPolicyd4f0effd",
+    "pinpointPolicyName": "pinpointPolicyd4f0effd",
+    "authPolicyName": "pinpoint_amplify_d4f0effd",
+    "unauthPolicyName": "pinpoint_amplify_d4f0effd",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

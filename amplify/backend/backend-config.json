@@ -1,16 +1,44 @@
 {
+  "auth": {
+    "cdedashboardab676150": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "loginMechanisms": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ]
+      }
+    }
+  },
+  "analytics": {
+    "cdedashboard": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation"
+    }
+  },
   "function": {
-    "twitterlambda": {
+    "twitter": {
       "build": true,
       "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": []
+      "service": "Lambda"
     },
-    "telegramlambda": {
+    "telegram": {
       "build": true,
       "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": []
+      "service": "Lambda"
     }
   },
   "api": {
@@ -20,7 +48,7 @@
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "twitterlambda",
+          "resourceName": "twitter",
           "attributes": [
             "Name",
             "Arn"
@@ -28,7 +56,7 @@
         },
         {
           "category": "function",
-          "resourceName": "telegramlambda",
+          "resourceName": "telegram",
           "attributes": [
             "Name",
             "Arn"

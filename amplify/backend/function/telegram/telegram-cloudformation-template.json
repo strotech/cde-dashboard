@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "twitterlambda",
+            "telegram",
             {
               "Fn::Join": [
                 "",
                 [
-                  "twitterlambda",
+                  "telegram",
                   "-",
                   {
                     "Ref": "env"
@@ -69,26 +69,6 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
-            },
-            "TWITTER_BEARER_TOKEN": {
-              "Fn::Join": [
-                "",
-                [
-                  {
-                    "Fn::Sub": [
-                      "/amplify/${appId}/${env}/AMPLIFY_${functionName}_",
-                      {
-                        "appId": "dvw494z680lkd",
-                        "env": {
-                          "Ref": "env"
-                        },
-                        "functionName": "twitterlambda"
-                      }
-                    ]
-                  },
-                  "TWITTER_BEARER_TOKEN"
-                ]
-              ]
             }
           }
         },
@@ -109,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "cdedashboardLambdaRole3af28048",
+            "cdedashboardLambdaRolef75aabae",
             {
               "Fn::Join": [
                 "",
                 [
-                  "cdedashboardLambdaRole3af28048",
+                  "cdedashboardLambdaRolef75aabae",
                   "-",
                   {
                     "Ref": "env"
@@ -184,61 +164,6 @@
           ]
         }
       }
-    },
-    "AmplifyFunctionSecretsPolicy": {
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyName": "amplify-function-secrets-policy",
-        "Roles": [
-          {
-            "Ref": "LambdaExecutionRole"
-          }
-        ],
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "ssm:GetParameter",
-                "ssm:GetParameters"
-              ],
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:aws:ssm:",
-                    {
-                      "Ref": "AWS::Region"
-                    },
-                    ":",
-                    {
-                      "Ref": "AWS::AccountId"
-                    },
-                    ":parameter",
-                    {
-                      "Fn::Sub": [
-                        "/amplify/${appId}/${env}/AMPLIFY_${functionName}_",
-                        {
-                          "appId": "dvw494z680lkd",
-                          "env": {
-                            "Ref": "env"
-                          },
-                          "functionName": "twitterlambda"
-                        }
-                      ]
-                    },
-                    "*"
-                  ]
-                ]
-              }
-            }
-          ]
-        }
-      },
-      "DependsOn": [
-        "LambdaExecutionRole"
-      ]
     }
   },
   "Outputs": {

@@ -8,29 +8,29 @@
         },
     
     
-          "functiontwitterlambdaName": {
+          "functiontwitterName": {
             "Type": "String",
-            "Default": "functiontwitterlambdaName"
+            "Default": "functiontwitterName"
           },
 
           
-          "functiontwitterlambdaArn": {
+          "functiontwitterArn": {
             "Type": "String",
-            "Default": "functiontwitterlambdaArn"
+            "Default": "functiontwitterArn"
           },
 
           
           
     
-          "functiontelegramlambdaName": {
+          "functiontelegramName": {
             "Type": "String",
-            "Default": "functiontelegramlambdaName"
+            "Default": "functiontelegramName"
           },
 
           
-          "functiontelegramlambdaArn": {
+          "functiontelegramArn": {
             "Type": "String",
-            "Default": "functiontelegramlambdaArn"
+            "Default": "functiontelegramArn"
           }
 
           
@@ -186,7 +186,7 @@
                             
                             {
 
-                                "Ref": "functiontwitterlambdaArn"
+                                "Ref": "functiontwitterArn"
                             },
                             
                             "/invocations"
@@ -285,7 +285,7 @@
                           
                           {
 
-                            "Ref": "functiontwitterlambdaArn"
+                            "Ref": "functiontwitterArn"
                           },
                           
                           "/invocations"
@@ -385,7 +385,7 @@
                             
                             {
 
-                                "Ref": "functiontwitterlambdaArn"
+                                "Ref": "functiontwitterArn"
                             },
                             
                             "/invocations"
@@ -484,7 +484,7 @@
                           
                           {
 
-                            "Ref": "functiontwitterlambdaArn"
+                            "Ref": "functiontwitterArn"
                           },
                           
                           "/invocations"
@@ -584,7 +584,7 @@
                             
                             {
 
-                                "Ref": "functiontelegramlambdaArn"
+                                "Ref": "functiontelegramArn"
                             },
                             
                             "/invocations"
@@ -683,7 +683,7 @@
                           
                           {
 
-                            "Ref": "functiontelegramlambdaArn"
+                            "Ref": "functiontelegramArn"
                           },
                           
                           "/invocations"
@@ -740,12 +740,12 @@
       
         
 
-        "functiontwitterlambdaPermissioncdedashboardapi": {
+        "functiontwitterPermissioncdedashboardapi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functiontwitterlambdaName"
+                        "Ref":  "functiontwitterName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -774,12 +774,12 @@
         },
         
 
-        "functiontelegramlambdaPermissioncdedashboardapi": {
+        "functiontelegramPermissioncdedashboardapi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functiontelegramlambdaName"
+                        "Ref":  "functiontelegramName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
