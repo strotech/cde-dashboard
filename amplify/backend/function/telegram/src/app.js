@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
  * Example get method *
  **********************/
 
-app.get('/telegram/covid', function(req, res) {
+app.get('/telegram/covid', async function(req, res) {
   const botReturn =  await axios.post(`https://api.telegram.org/bot${Parameters[0].Value}/sendMessage`, {
       "text": "I am telegram bot amplified",
       "chat_id": Parameters[1].Value
