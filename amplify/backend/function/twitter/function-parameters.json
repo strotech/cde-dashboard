@@ -1,3 +1,6 @@
 {
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "secretNames": [
+    "TWITTER_BEARER_TOKEN"
+  ]
 }

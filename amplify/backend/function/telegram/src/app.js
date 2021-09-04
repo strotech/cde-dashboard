@@ -1,13 +1,13 @@
-/*
-Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
-    http://aws.amazon.com/apache2.0/
-or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and limitations under the License.
-*/
+const aws = require('aws-sdk');
 
+const { Parameters } = await (new aws.SSM())
+  .getParameters({
+    Names: ["TELEGRAM_TOKEN","CHAT_CHANNEL_ID"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
 
-
+//Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
 
 var express = require('express')
 var bodyParser = require('body-parser')
@@ -31,8 +31,28 @@ app.use(function(req, res, next) {
  **********************/
 
 app.get('/telegram/covid', function(req, res) {
-  // Add your code here
-  res.json({success: 'Hi from telegram covid handler!', url: req.url});
+  const botReturn =  await axios.post(`https://api.telegram.org/bot${Parameters[0].Value}/sendMessage`, {
+      "text": "I am telegram bot amplified",
+      "chat_id": Parameters[1].Value
+  },{
+      headers:{
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*"
+      }
+  })
+  .then(response=>response.data)    
+  .catch(error => {
+      console.error('There was an error!', error);
+  });
+
+  res.json({
+      body: JSON.stringify(botReturn.result.text),
+      statusCode: 200,
+      headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "*"
+      }
+  })
 });
 
 app.get('/item/*', function(req, res) {
