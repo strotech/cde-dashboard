@@ -39,6 +39,11 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "cdebot": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "api": {
@@ -57,6 +62,14 @@
         {
           "category": "function",
           "resourceName": "twitterflood",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "cdebot",
           "attributes": [
             "Name",
             "Arn"

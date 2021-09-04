@@ -27,7 +27,7 @@ const awsmobile = {
     "aws_cloud_logic_custom": [
         {
             "name": "twittercovid",
-            "endpoint": "https://ppysvwoqui.execute-api.us-east-1.amazonaws.com/dev",
+            "endpoint": "https://v0jthppmtj.execute-api.us-east-1.amazonaws.com/dev",
             "region": "us-east-1"
         }
     ]

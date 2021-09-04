@@ -18,11 +18,15 @@
       "function": {
         "twittercovid": {
           "deploymentBucketName": "amplify-cdedashboard-dev-131425-deployment",
-          "s3Key": "amplify-builds/twittercovid-50594137786a6a645646-build.zip"
+          "s3Key": "amplify-builds/twittercovid-476266725a577354742b-build.zip"
         },
         "twitterflood": {
           "deploymentBucketName": "amplify-cdedashboard-dev-131425-deployment",
-          "s3Key": "amplify-builds/twitterflood-495571694e4d425a4141-build.zip"
+          "s3Key": "amplify-builds/twitterflood-6f70764b69344e695634-build.zip"
+        },
+        "cdebot": {
+          "deploymentBucketName": "amplify-cdedashboard-dev-131425-deployment",
+          "s3Key": "amplify-builds/cdebot-79484c655357572b4950-build.zip"
         }
       }
     }
