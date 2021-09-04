@@ -22,7 +22,7 @@
         },
         "telegram": {
           "deploymentBucketName": "amplify-cdedashboard-dev-200835-deployment",
-          "s3Key": "amplify-builds/telegram-6f6a6f62463662366461-build.zip"
+          "s3Key": "amplify-builds/telegram-76565936574265696854-build.zip"
         }
       }
     }
