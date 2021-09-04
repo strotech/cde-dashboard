@@ -1,0 +1,62 @@
+{
+  "paths": [
+    {
+      "name": "/twitter/covid",
+      "lambdaFunction": "twitterlambda",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/twitter/covid"
+    },
+    {
+      "name": "/twitter/flood",
+      "lambdaFunction": "twitterlambda",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/twitter/flood"
+    },
+    {
+      "name": "/telegram/covid",
+      "lambdaFunction": "telegramlambda",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/telegram/covid"
+    }
+  ],
+  "resourceName": "cdedashboardapi",
+  "apiName": "cdedashboardapi",
+  "functionArns": [
+    {
+      "lambdaFunction": "twitterlambda"
+    },
+    {
+      "lambdaFunction": "telegramlambda"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-cdedashboard-dev-183234-authRole",
+    "unAuthRoleName": "amplify-cdedashboard-dev-183234-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "twitterlambda",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    },
+    {
+      "category": "function",
+      "resourceName": "telegramlambda",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

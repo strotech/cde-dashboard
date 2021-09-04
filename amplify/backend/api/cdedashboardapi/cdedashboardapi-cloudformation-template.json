@@ -8,43 +8,29 @@
         },
     
     
-          "functiontwittercovidName": {
+          "functiontwitterlambdaName": {
             "Type": "String",
-            "Default": "functiontwittercovidName"
+            "Default": "functiontwitterlambdaName"
           },
 
           
-          "functiontwittercovidArn": {
+          "functiontwitterlambdaArn": {
             "Type": "String",
-            "Default": "functiontwittercovidArn"
-          },
-
-          
-          
-    
-          "functiontwitterfloodName": {
-            "Type": "String",
-            "Default": "functiontwitterfloodName"
-          },
-
-          
-          "functiontwitterfloodArn": {
-            "Type": "String",
-            "Default": "functiontwitterfloodArn"
+            "Default": "functiontwitterlambdaArn"
           },
 
           
           
     
-          "functioncdebotName": {
+          "functiontelegramlambdaName": {
             "Type": "String",
-            "Default": "functioncdebotName"
+            "Default": "functiontelegramlambdaName"
           },
 
           
-          "functioncdebotArn": {
+          "functiontelegramlambdaArn": {
             "Type": "String",
-            "Default": "functioncdebotArn"
+            "Default": "functiontelegramlambdaArn"
           }
 
           
@@ -69,16 +55,16 @@
         
         
         
-      "twittercovid": {
+      "cdedashboardapi": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
           "Description": "",
-          "Name": "twittercovid",
+          "Name": "cdedashboardapi",
           "Body": {
             "swagger": "2.0",
             "info": {
               "version": "2018-05-24T17:52:00Z",
-              "title": "twittercovid"
+              "title": "cdedashboardapi"
             },
             "host": {
                 "Fn::Join": [
@@ -200,7 +186,7 @@
                             
                             {
 
-                                "Ref": "functiontwittercovidArn"
+                                "Ref": "functiontwitterlambdaArn"
                             },
                             
                             "/invocations"
@@ -299,7 +285,7 @@
                           
                           {
 
-                            "Ref": "functiontwittercovidArn"
+                            "Ref": "functiontwitterlambdaArn"
                           },
                           
                           "/invocations"
@@ -399,7 +385,7 @@
                             
                             {
 
-                                "Ref": "functiontwitterfloodArn"
+                                "Ref": "functiontwitterlambdaArn"
                             },
                             
                             "/invocations"
@@ -498,7 +484,7 @@
                           
                           {
 
-                            "Ref": "functiontwitterfloodArn"
+                            "Ref": "functiontwitterlambdaArn"
                           },
                           
                           "/invocations"
@@ -580,12 +566,6 @@
                     }
                   },
                   
-                    "security": [
-                        {
-                          "sigv4": []
-                        }
-                      ],
-                  
                   "x-amazon-apigateway-integration": {
                     "responses": {
                       "default": {
@@ -604,7 +584,7 @@
                             
                             {
 
-                                "Ref": "functioncdebotArn"
+                                "Ref": "functiontelegramlambdaArn"
                             },
                             
                             "/invocations"
@@ -685,12 +665,6 @@
                     }
                   },
                   
-                    "security": [
-                        {
-                          "sigv4": []
-                        }
-                      ],
-                  
                   "x-amazon-apigateway-integration": {
                     "responses": {
                       "default": {
@@ -709,7 +683,7 @@
                           
                           {
 
-                            "Ref": "functioncdebotArn"
+                            "Ref": "functiontelegramlambdaArn"
                           },
                           
                           "/invocations"
@@ -766,12 +740,12 @@
       
         
 
-        "functiontwittercovidPermissiontwittercovid": {
+        "functiontwitterlambdaPermissioncdedashboardapi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functiontwittercovidName"
+                        "Ref":  "functiontwitterlambdaName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -790,7 +764,7 @@
                             },
                             ":",
                             {
-                                "Ref": "twittercovid"
+                                "Ref": "cdedashboardapi"
                             },
                             "/*/*/*"
                         ]
@@ -800,12 +774,12 @@
         },
         
 
-        "functiontwitterfloodPermissiontwittercovid": {
+        "functiontelegramlambdaPermissioncdedashboardapi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functiontwitterfloodName"
+                        "Ref":  "functiontelegramlambdaName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -824,41 +798,7 @@
                             },
                             ":",
                             {
-                                "Ref": "twittercovid"
-                            },
-                            "/*/*/*"
-                        ]
-                    ]
-                }
-            }
-        },
-        
-
-        "functioncdebotPermissiontwittercovid": {
-            "Type": "AWS::Lambda::Permission",
-            "Properties": {
-                "FunctionName": 
-                    {
-                        "Ref":  "functioncdebotName"
-                    },
-                    
-                    "Action": "lambda:InvokeFunction",
-                "Principal": "apigateway.amazonaws.com",
-                "SourceArn": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            "arn:aws:execute-api:",
-                            {
-                                "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                                "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                                "Ref": "twittercovid"
+                                "Ref": "cdedashboardapi"
                             },
                             "/*/*/*"
                         ]
@@ -869,7 +809,7 @@
         
         
 
-      "DeploymentAPIGWtwittercovid65c6c179": {
+      "DeploymentAPIGWcdedashboardapi": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
@@ -883,7 +823,7 @@
             ]
           },
           "RestApiId": {
-            "Ref": "twittercovid"
+            "Ref": "cdedashboardapi"
           }
         }
       }
@@ -891,15 +831,15 @@
     "Outputs": {
         "RootUrl": {
             "Description": "Root URL of the API gateway",
-            "Value": {"Fn::Join": ["", ["https://", {"Ref": "twittercovid"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
+            "Value": {"Fn::Join": ["", ["https://", {"Ref": "cdedashboardapi"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
         },
         "ApiName": {
           "Description": "API Friendly name",
-          "Value": "twittercovid"
+          "Value": "cdedashboardapi"
         },
         "ApiId": {
           "Description": "API ID (prefix of API URL)",
-          "Value": {"Ref": "twittercovid"}
+          "Value": {"Ref": "cdedashboardapi"}
         }
     }
   }

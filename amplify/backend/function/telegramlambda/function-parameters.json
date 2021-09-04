@@ -1,0 +1,7 @@
+{
+  "lambdaLayers": [],
+  "secretNames": [
+    "BOT_TELEGRAM_TOKEN",
+    "BOT_TELEGRAM_CHAT_CHANNEL_ID"
+  ]
+}

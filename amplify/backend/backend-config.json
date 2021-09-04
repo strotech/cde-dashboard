@@ -1,59 +1,26 @@
 {
-  "auth": {
-    "cdedashboard9cbab043": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "customAuth": false,
-      "frontendAuthConfig": {
-        "loginMechanisms": [
-          "EMAIL"
-        ],
-        "signupAttributes": [
-          "EMAIL"
-        ],
-        "passwordProtectionSettings": {
-          "passwordPolicyMinLength": 8,
-          "passwordPolicyCharacters": []
-        },
-        "mfaConfiguration": "OFF",
-        "mfaTypes": [
-          "SMS"
-        ]
-      }
-    }
-  },
-  "analytics": {
-    "cdedashboard": {
-      "service": "Pinpoint",
-      "providerPlugin": "awscloudformation"
-    }
-  },
   "function": {
-    "twittercovid": {
+    "twitterlambda": {
       "build": true,
       "providerPlugin": "awscloudformation",
-      "service": "Lambda"
+      "service": "Lambda",
+      "dependsOn": []
     },
-    "twitterflood": {
+    "telegramlambda": {
       "build": true,
       "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "cdebot": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
+      "service": "Lambda",
+      "dependsOn": []
     }
   },
   "api": {
-    "twittercovid": {
+    "cdedashboardapi": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "twittercovid",
+          "resourceName": "twitterlambda",
           "attributes": [
             "Name",
             "Arn"
@@ -61,15 +28,7 @@
         },
         {
           "category": "function",
-          "resourceName": "twitterflood",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "cdebot",
+          "resourceName": "telegramlambda",
           "attributes": [
             "Name",
             "Arn"
