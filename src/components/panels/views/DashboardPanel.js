@@ -2,7 +2,7 @@ import React from 'react';
 const DashboardSidebarPanel =()=> {
     return (
       <div>
-          Hi DevX - Dashboard!!!
+          Hi DevX - Dashboard!!!!!
       </div>
     );
   }

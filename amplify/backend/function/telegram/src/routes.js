@@ -29,7 +29,7 @@ app.get('/telegram/covid', async function(req, res) {
   .catch(error => {
       console.error('There was an error!', error);
   });
-
+  console.log(botReturn);
   res.json({
       body: JSON.stringify(botReturn.result.text),
       statusCode: 200,
