@@ -1,14 +1,13 @@
 const aws = require('aws-sdk');
 
-async function fetchSecrets() {
+const { Parameters } =  async function() {
   return await (new aws.SSM())
-    .getParameters({
-      Names: ["TWITTER_BEARER_TOKEN"].map(secretName => process.env[secretName]),
-      WithDecryption: true,
-    })
-    .promise();
-}
-const { Parameters } = fetchSecrets();
+      .getParameters({
+        Names: ["TWITTER_BEARER_TOKEN"].map(secretName => process.env[secretName]),
+        WithDecryption: true,
+      })
+      .promise();
+}();
 //Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
 
 var express = require('express')

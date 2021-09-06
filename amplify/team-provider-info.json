@@ -18,11 +18,11 @@
       "function": {
         "twitter": {
           "deploymentBucketName": "amplify-cdedashboard-dev-200835-deployment",
-          "s3Key": "amplify-builds/twitter-54625136704875563177-build.zip"
+          "s3Key": "amplify-builds/twitter-38344553314f62555369-build.zip"
         },
         "telegram": {
           "deploymentBucketName": "amplify-cdedashboard-dev-200835-deployment",
-          "s3Key": "amplify-builds/telegram-76565936574265696854-build.zip"
+          "s3Key": "amplify-builds/telegram-52614c304f6e48734e73-build.zip"
         }
       }
     }

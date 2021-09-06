@@ -1,16 +1,15 @@
 const aws = require('aws-sdk');
-
-async function fetchSecrets() {
-  return await (new aws.SSM())
-    .getParameters({
-      Names: ["TELEGRAM_TOKEN","CHAT_CHANNEL_ID"].map(secretName => process.env[secretName]),
-      WithDecryption: true,
-    })
-    .promise();
-}
-const { Parameters } = fetchSecrets();
+const axios = require('axios');
+(async ()=>{
+  const { Parameters } =  await (new aws.SSM())
+  .getParameters({
+    Names: ["TELEGRAM_TOKEN","CHAT_CHANNEL_ID"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+})();
 //Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
-
+console.log("hi",Parameters);
 var express = require('express')
 var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
@@ -55,6 +54,7 @@ app.get('/telegram/covid', async function(req, res) {
           "Access-Control-Allow-Headers": "*"
       }
   })
+  // res.json({success: 'get call succeed!', url: req.url});
 });
 
 app.get('/item/*', function(req, res) {
