@@ -1,4 +1,4 @@
-var routes = require('routes');
+var routes = require('./routes');
 
 var express = require('express')
 var bodyParser = require('body-parser')
