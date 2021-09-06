@@ -4,7 +4,15 @@
       "name": "/twitter/covid",
       "lambdaFunction": "twitter",
       "privacy": {
-        "open": true
+        // "open": true
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
       },
       "policyResourceName": "/twitter/covid"
     },
@@ -12,7 +20,15 @@
       "name": "/twitter/flood",
       "lambdaFunction": "twitter",
       "privacy": {
-        "open": true
+        // "open": true
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
       },
       "policyResourceName": "/twitter/flood"
     },
@@ -20,7 +36,15 @@
       "name": "/telegram/covid",
       "lambdaFunction": "telegram",
       "privacy": {
-        "open": true
+        // "open": true
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
       },
       "policyResourceName": "/telegram/covid"
     }
@@ -36,7 +60,7 @@
     }
   ],
   "privacy": {
-    "auth": 0,
+    "auth": 1,
     "unauth": 0,
     "authRoleName": "amplify-cdedashboard-dev-200835-authRole",
     "unAuthRoleName": "amplify-cdedashboard-dev-200835-unauthRole"
