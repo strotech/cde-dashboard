@@ -16,9 +16,9 @@ console.log("hi",Parameters);
  **********************/
 
 app.get('/telegram/covid', async function(req, res) {
-  const botReturn =  await axios.post(`https://api.telegram.org/bot${Parameters[0].Value}/sendMessage`, {
+  const botReturn =  await axios.post(`https://api.telegram.org/bot${Parameters[1].Value}/sendMessage`, {
       "text": "I am telegram bot amplified",
-      "chat_id": Parameters[1].Value
+      "chat_id": Parameters[0].Value
   },{
       headers:{
           'Content-Type': 'application/json;charset=UTF-8',
