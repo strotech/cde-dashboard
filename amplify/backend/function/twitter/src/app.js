@@ -1,14 +1,5 @@
 const aws = require('aws-sdk');
-
-const { Parameters } =  async function() {
-  return await (new aws.SSM())
-      .getParameters({
-        Names: ["TWITTER_BEARER_TOKEN"].map(secretName => process.env[secretName]),
-        WithDecryption: true,
-      })
-      .promise();
-}();
-//Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+var routes = require('./routes');
 
 var express = require('express')
 var bodyParser = require('body-parser')
@@ -26,67 +17,7 @@ app.use(function(req, res, next) {
   next()
 });
 
-
-/**********************
- * Example get method *
- **********************/
-
-app.get('/twitter/covid', function(req, res) {
-  // Add your code here
-  res.json({success: 'Hi from twitter covid handler!', url: req.url});
-});
-
-app.get('/twitter/flood', function(req, res) {
-  // Add your code here
-  res.json({success: 'Hi from twitter flood handler!', url: req.url});
-});
-
-app.get('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'get call succeed!', url: req.url});
-});
-
-/****************************
-* Example post method *
-****************************/
-
-app.post('/item', function(req, res) {
-  // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
-});
-
-app.post('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
-});
-
-/****************************
-* Example put method *
-****************************/
-
-app.put('/item', function(req, res) {
-  // Add your code here
-  res.json({success: 'put call succeed!', url: req.url, body: req.body})
-});
-
-app.put('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'put call succeed!', url: req.url, body: req.body})
-});
-
-/****************************
-* Example delete method *
-****************************/
-
-app.delete('/item', function(req, res) {
-  // Add your code here
-  res.json({success: 'delete call succeed!', url: req.url});
-});
-
-app.delete('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'delete call succeed!', url: req.url});
-});
+routes(app);
 
 app.listen(3000, function() {
     console.log("App started")

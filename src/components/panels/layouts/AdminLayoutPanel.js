@@ -2,6 +2,8 @@ import React from 'react';
 import { Switch } from "react-router-dom";
 
 import SidebarContainer from '../../containers/widgets/SidebarContainer';
+import AdminNavbar from '../../panels/widgets/AdminNavbar';
+
 
 const AdminLayoutPanel =(props)=> {
   const mainPanel = React.useRef(null);
@@ -13,7 +15,7 @@ const AdminLayoutPanel =(props)=> {
       <div className="wrapper">
         <SidebarContainer routes={routes} />
         <div className="main-panel" ref={mainPanel}>
-          {/* <AdminNavbar /> */}
+          <AdminNavbar /> 
           <div className="content">
             <Switch>{getRoutes(routes)}</Switch>
           </div>

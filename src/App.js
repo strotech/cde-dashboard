@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import './assets/styles/main.scss';
 
 import AdminLayoutContainer from "./components/containers/layouts/AdminLayoutContainer";
+import DashboardTheme from "./components/amplify/DashboardTheme";
 
 import { withAuthenticator } from '@aws-amplify/ui-react'
 
@@ -20,6 +21,6 @@ const App=()=>{
   );
 }
 
-export default withAuthenticator(App);
+export default withAuthenticator(App,false, [], null, DashboardTheme);
 
 

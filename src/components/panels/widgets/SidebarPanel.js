@@ -26,7 +26,7 @@ const SidebarPanel=(props)=> {
     }
   
   return (
-    <div className="sidebar"  data-color='black'>
+    <div className="sidebar"  data-color='blue'>
       <div
         className="sidebar-background"
         style={{
