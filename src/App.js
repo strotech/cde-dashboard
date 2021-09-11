@@ -20,6 +20,6 @@ const App=()=>{
   );
 }
 
-export default withAuthenticator(App,false, [], null, DashboardTheme);
+export default withAuthenticator(App);
 
 
