@@ -5,7 +5,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 const AdminNavbar=(props)=> {
    
     return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className="navbar-custom" expand="lg">
       <Container fluid>
       
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-2">
@@ -16,21 +16,20 @@ const AdminNavbar=(props)=> {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav mr-auto" navbar>
             <Nav.Item>
-              <Nav.Link
-                data-toggle="dropdown"
+              <Nav.Link                
                 href="#pablo"
                 onClick={(e) => e.preventDefault()}
                 className="m-0"
-              >
-                <i className="nc-icon nc-palette"></i>
-                <span className="d-lg-none ml-1">Dashboard</span>
+              >                
+                <span className="no-icon">Dashboard</span>
               </Nav.Link>
             </Nav.Item>
-           
+            </Nav>
+          <Nav className="ml-auto" navbar>
             
             <Nav.Item>
               <Nav.Link
-                className="m-0"
+                className="m-0 nav-items-custom"
                 href="#pablo"
                 onClick={(e) => e.preventDefault()}
               >

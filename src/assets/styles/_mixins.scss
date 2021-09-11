@@ -8,3 +8,13 @@
     background: linear-gradient(to bottom,  $top-color 0%,$bottom-color 100%);
     background-size: 150% 150%;
 }
+
+@mixin navbar-color($color){
+    background-color: $color;
+}
+
+@mixin nav-items-custom(){
+    
+    margin-left: auto!important;
+    
+}

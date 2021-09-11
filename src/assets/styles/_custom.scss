@@ -306,8 +306,15 @@ body > .navbar-collapse{
     &[data-color="black"]:after{
         @include icon-gradient(#282828, rgba(#111,.7));
     }
+    &[data-color="blue"]:after{
+        @include icon-gradient(#223da0, rgba(#050d49b3,.7));
+    }
     .logo-img img {
       max-width: 40px;
       max-height: 40px;
     }
+}
+
+.navbar-custom {
+    @include navbar-color(#c7d0e4);
 }
