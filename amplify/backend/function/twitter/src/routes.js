@@ -63,8 +63,8 @@ app.get("/api/rules", async (req, res) => {
         throw new Error(response.body.error.message);
       }
     }
-
-    res.send(response);
+    res.json(response);
+    // res.send(response);
   } catch (e) {
     res.send(e);
   }

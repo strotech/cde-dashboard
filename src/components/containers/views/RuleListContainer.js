@@ -135,7 +135,10 @@ const RuleList = () => {
 
       try {
         // const response = await axios.get(rulesURL);
-        const response = await API.get('cdedashboardapi',rulesURL).then(res=>res);
+        const response = await API.get('cdedashboardapi',rulesURL).then(res=>{
+          console.log(res);
+          return res;
+        });
         const { data: payload = [] } = response.data.body;
         dispatch({
           type: "show_rules",
