@@ -18,7 +18,7 @@ const TweetsPanel =(props)=> {
               aria-label="Rule details" 
               aria-describedby="basic-addon2"
               value={searchValue}        
-              onChange={e=>setSearchValue(e)}    
+              onChange={e=>setSearchValue(e.target.value)}    
             />
             <div class="input-group-append">
             <button type="button" className="btn btn-outline-secondary" onClick={(e) => getTweets(e)}>
