@@ -7,7 +7,7 @@ const get = util.promisify(request.get);
 module.exports = async function(app){
   const { Parameters } =  await (new aws.SSM())
   .getParameters({
-    Names: ["TWITTER_BEARER_TOKEN"].map(secretName => process.env[secretName]),
+    Names: ["TWITTER_API_KEY","TWITTER_API_SECRET","TWITTER_ACCESS_TOKEN","TWITTER_ACCESS_TOKEN_SECRET","TWITTER_BEARER_TOKEN"].map(secretName => process.env[secretName]),
     WithDecryption: true,
   })
   .promise();
@@ -19,7 +19,12 @@ module.exports = async function(app){
 // Twitter specific code 
 const BEARER_TOKEN = Parameters[0].Value;
 
-
+const twitterClient = new TwitterClient({
+  apiKey: Parameters[0].Value,
+  apiSecret: Parameters[1].Value,
+  accessToken: Parameters[2].Value,
+  accessTokenSecret: Parameters[3].Value
+})
 
 const rulesURL = new URL(
   "https://api.twitter.com/2/tweets/search/stream/rules"
@@ -100,6 +105,13 @@ app.post("/api/rules", async (req, res) => {
 });
 
   app.post("/api/tweets", async (req, res) => {
-    res.json({data:{id:1,content:"hi tweet"}})
+    const tweetList = twitterClient.tweets.search({
+        q: '#HistoryBot',
+        result_type: 'recent',
+    }).then ((response) => {
+      console.log(response)
+      return response;
+    }).catch ((err) => console.error(err))
+    res.json({data:{id:1,content:tweetList}})
   });
 }

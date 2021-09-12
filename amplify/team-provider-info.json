@@ -18,7 +18,7 @@
       "function": {
         "twitter": {
           "deploymentBucketName": "amplify-cdedashboard-dev-200835-deployment",
-          "s3Key": "amplify-builds/twitter-56324c31366f63676875-build.zip"
+          "s3Key": "amplify-builds/twitter-6d6948534b6465664a64-build.zip"
         },
         "telegram": {
           "deploymentBucketName": "amplify-cdedashboard-dev-200835-deployment",
