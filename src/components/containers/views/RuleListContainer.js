@@ -82,15 +82,7 @@ const RuleList = () => {
     dispatch({ type: "change_loading_status", payload: false });
   };
 
-  const errors = () => {
-    const { errors } = state;
-
-    if (errors && errors.length > 0) {
-      return errors.map((error) => (
-        <ErrorMessage key={error.title} error={error} styleType="negative" />
-      ));
-    }
-  };
+  
 
   const rules = () => {
     const { isLoading, rules } = state;
@@ -175,7 +167,6 @@ const RuleList = () => {
           </button>
           </div>
         </div>
-        {errors()}
         {rules()}
       </form>
     </div>

@@ -1,86 +1,69 @@
 {
-  "paths": [
-    {
-      "name": "/twitter/covid",
-      "lambdaFunction": "twitter",
-      "privacy": {
-        // "open": true
-        "private": true,
-        "auth": [
-          "/POST",
-          "/GET",
-          "/PUT",
-          "/PATCH",
-          "/DELETE"
-        ]
-      },
-      "policyResourceName": "/twitter/covid"
+    "paths": [
+        {
+            "name": "/telegram/covid",
+            "lambdaFunction": "telegram",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/telegram/covid"
+        },
+        {
+            "name": "/api/rules",
+            "lambdaFunction": "twitter",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/api/rules"
+        }
+    ],
+    "resourceName": "cdedashboardapi",
+    "apiName": "cdedashboardapi",
+    "functionArns": [
+        {
+            "lambdaFunction": "telegram"
+        },
+        {
+            "lambdaFunction": "twitter"
+        }
+    ],
+    "privacy": {
+        "auth": 2,
+        "unauth": 0,
+        "authRoleName": "amplify-cdedashboard-dev-200835-authRole",
+        "unAuthRoleName": "amplify-cdedashboard-dev-200835-unauthRole"
     },
-    {
-      "name": "/twitter/flood",
-      "lambdaFunction": "twitter",
-      "privacy": {
-        // "open": true
-        "private": true,
-        "auth": [
-          "/POST",
-          "/GET",
-          "/PUT",
-          "/PATCH",
-          "/DELETE"
-        ]
-      },
-      "policyResourceName": "/twitter/flood"
-    },
-    {
-      "name": "/telegram/covid",
-      "lambdaFunction": "telegram",
-      "privacy": {
-        // "open": true
-        "private": true,
-        "auth": [
-          "/POST",
-          "/GET",
-          "/PUT",
-          "/PATCH",
-          "/DELETE"
-        ]
-      },
-      "policyResourceName": "/telegram/covid"
-    }
-  ],
-  "resourceName": "cdedashboardapi",
-  "apiName": "cdedashboardapi",
-  "functionArns": [
-    {
-      "lambdaFunction": "twitter"
-    },
-    {
-      "lambdaFunction": "telegram"
-    }
-  ],
-  "privacy": {
-    "auth": 1,
-    "unauth": 0,
-    "authRoleName": "amplify-cdedashboard-dev-200835-authRole",
-    "unAuthRoleName": "amplify-cdedashboard-dev-200835-unauthRole"
-  },
-  "dependsOn": [
-    {
-      "category": "function",
-      "resourceName": "twitter",
-      "attributes": [
-        "Name",
-        "Arn"
-      ]
-    },
-    {
-      "category": "function",
-      "resourceName": "telegram",
-      "attributes": [
-        "Name",
-        "Arn"
-      ]
-    }
-  ]
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "telegram",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "twitter",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "9a25913c"
 }

@@ -26,6 +26,8 @@ const rulesURL = new URL(
 );
 
 
+
+
 const authMessage = {
   title: "Could not authenticate",
   details: [
@@ -55,7 +57,7 @@ app.get("/api/rules", async (req, res) => {
 
   try {
     const response = await get(requestConfig);
-
+    console.log("hi",response)
     if (response.statusCode !== 200) {
       if (response.statusCode === 403) {
         res.status(403).send(response.body);
@@ -63,8 +65,7 @@ app.get("/api/rules", async (req, res) => {
         throw new Error(response.body.error.message);
       }
     }
-    res.json(response);
-    // res.send(response);
+    res.send(response);
   } catch (e) {
     res.send(e);
   }

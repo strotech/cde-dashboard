@@ -48,7 +48,7 @@
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "twitter",
+          "resourceName": "telegram",
           "attributes": [
             "Name",
             "Arn"
@@ -56,7 +56,7 @@
         },
         {
           "category": "function",
-          "resourceName": "telegram",
+          "resourceName": "twitter",
           "attributes": [
             "Name",
             "Arn"
