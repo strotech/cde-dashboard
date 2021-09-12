@@ -140,18 +140,25 @@ const RuleList = () => {
   return (
     <div>
       <form onSubmit={(e) => createRule(e)}>
-        <div className="ui fluid action input">
+     
+        <div className="input-group mb-3">
           <input
             type="text"
             autoFocus={true}
+            className="form-control"
+            placeholder="Rule details"
+            aria-label="Rule details" 
+            aria-describedby="basic-addon2"
             value={state.newRule}
             onChange={(e) =>
               dispatch({ type: "rule_changed", payload: e.target.value })
             }
           />
-          <button type="submit" className="ui primary button">
+          <div class="input-group-append">
+          <button type="button" className="btn btn-outline-secondary">
             Add Rule
           </button>
+          </div>
         </div>
         {errors()}
         {rules()}

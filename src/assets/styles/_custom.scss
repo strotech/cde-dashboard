@@ -318,3 +318,7 @@ body > .navbar-collapse{
 .navbar-custom {
     @include navbar-color(#c7d0e4);
 }
+
+.nav-items-custom {
+    @include nav-items-custom();
+}

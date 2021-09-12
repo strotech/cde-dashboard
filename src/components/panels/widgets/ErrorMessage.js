@@ -25,7 +25,7 @@ const ErrorMessage = ({ error, styleType }) => {
   };
 
   return (
-    <div className={`ui message ${styleType}`}>
+    <div className={`alert alert-${styleType}`} role="alert">
       <div className="header">{error.title}</div>
       {errorDetails()}
       {errorType()}

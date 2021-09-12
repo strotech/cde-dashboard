@@ -25,11 +25,11 @@ const AdminNavbar=(props)=> {
               </Nav.Link>
             </Nav.Item>
             </Nav>
-          <Nav className="ml-auto" navbar>
+          <Nav className="ml-auto nav-items-custom" navbar>
             
             <Nav.Item>
               <Nav.Link
-                className="m-0 nav-items-custom"
+                className="m-0"
                 href="#pablo"
                 onClick={(e) => e.preventDefault()}
               >
