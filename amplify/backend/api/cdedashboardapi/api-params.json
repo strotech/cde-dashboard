@@ -29,6 +29,21 @@
                 ]
             },
             "policyResourceName": "/api/rules"
+        },
+        {
+            "name": "/api/tweets",
+            "lambdaFunction": "twitter",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/api/tweets"
         }
     ],
     "resourceName": "cdedashboardapi",
@@ -42,7 +57,7 @@
         }
     ],
     "privacy": {
-        "auth": 2,
+        "auth": 3,
         "unauth": 0,
         "authRoleName": "amplify-cdedashboard-dev-200835-authRole",
         "unAuthRoleName": "amplify-cdedashboard-dev-200835-unauthRole"
@@ -65,5 +80,5 @@
             ]
         }
     ],
-    "uuid": "9a25913c"
+    "uuid": "cab782d1"
 }

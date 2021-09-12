@@ -99,7 +99,7 @@ app.post("/api/rules", async (req, res) => {
   }
 });
 
-
-
-
+  app.post("/api/tweets", async (req, res) => {
+    res.json({data:{id:1,content:"hi tweet"}})
+  });
 }

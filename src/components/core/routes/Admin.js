@@ -1,6 +1,6 @@
 import DashboardContainer from '../../containers/views/DashboardContainer'
 import AboutContainer from '../../containers/views/AboutContainer'
-import RuleListContainer from '../../containers/views/RuleListContainer'
+import TweetsContainer from '../../containers/views/TweetsContainer'
 
 const routes = [
     {
@@ -14,7 +14,7 @@ const routes = [
         path: "/rules",
         name: "Rules",
         icon: "nc-icon nc-circle-09",
-        component: RuleListContainer,
+        component: TweetsContainer,
         layout: "/admin",
     },
     {
