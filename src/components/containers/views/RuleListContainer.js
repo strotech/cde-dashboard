@@ -100,6 +100,7 @@ const RuleList = () => {
 
     if (!isLoading) {
       if (rules && rules.length > 0) {
+        console.log("in rules", rules);
         return rules.map((rule) => (
           <Rule
             key={rule.id}
