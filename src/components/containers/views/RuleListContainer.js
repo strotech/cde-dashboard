@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer } from "react";
-import axios from "axios";
+// import axios from "axios";
+import {API} from 'aws-amplify';
 import Rule from "../../panels/views/RulePanel";
 import ErrorMessage from "../../panels/widgets/ErrorMessage";
 import SpinnerWidget from "../../panels/widgets/SpinnerWidget";
