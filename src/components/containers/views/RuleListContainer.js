@@ -44,10 +44,15 @@ const RuleList = () => {
   const createRule = async (e) => {
     e.preventDefault();
     const payload = { add: [{ value: state.newRule }] };
+    const amplifyPayload = {
+      body: payload, 
+      headers: {}, // OPTIONAL
+    };
 
     dispatch({ type: "change_loading_status", payload: true });
     try {
-      const response = await axios.post(rulesURL, payload);
+      // const response = await axios.post(rulesURL, payload);
+      const response = await API.post('cdedashboardapi',rulesURL,amplifyPayload).then(res=>res);
       if (response.data.body.errors)
         dispatch({ type: "add_errors", payload: response.data.body.errors });
       else {
@@ -66,7 +71,12 @@ const RuleList = () => {
   const deleteRule = async (id) => {
     const payload = { delete: { ids: [id] } };
     dispatch({ type: "change_loading_status", payload: true });
-    await axios.post(rulesURL, payload);
+    const amplifyPayload = {
+      body: payload, 
+      headers: {}, // OPTIONAL
+    };
+    // await axios.post(rulesURL, payload);
+    await API.post('cdedashboardapi',rulesURL,amplifyPayload).then(res=>res);
     dispatch({ type: "delete_rule", payload: id });
     dispatch({ type: "change_loading_status", payload: false });
   };
@@ -123,7 +133,8 @@ const RuleList = () => {
       dispatch({ type: "change_loading_status", payload: true });
 
       try {
-        const response = await axios.get(rulesURL);
+        // const response = await axios.get(rulesURL);
+        const response = await API.get('cdedashboardapi',rulesURL).then(res=>res);
         const { data: payload = [] } = response.data.body;
         dispatch({
           type: "show_rules",

@@ -8,8 +8,6 @@ API.configure(config);
 
 const DashboardContainer =()=> {
     useEffect(()=>{
-      API.get('cdedashboardapi','/twitter/covid').then(res=>console.log(res));
-      API.get('cdedashboardapi','/twitter/flood').then(res=>console.log(res));
       API.get('cdedashboardapi','/telegram/covid').then(res=>console.log(res));
     },[]);
     return (
