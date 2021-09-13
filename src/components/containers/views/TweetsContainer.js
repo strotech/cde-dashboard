@@ -6,7 +6,7 @@ const TweetsContainer = () => {
  
   const [tweets,setTweets] = useState([]);
   const getTweets = async (searchValue)=>{
-    const tweets  = await API.post('cdedashboardapi','/api/tweets',{
+    const tweets  = await API.get('cdedashboardapi','/api/tweets',{
       'queryStringParameters':{
         'hashtag':searchValue
       }
