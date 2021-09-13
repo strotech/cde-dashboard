@@ -28,7 +28,7 @@ const TweetsPanel =(props)=> {
           </div>
         </form>
         {tweets.length>0 ? tweets.map((tweet) => (
-            <Tweet key={tweet.data.id} json={tweet} />
+            <Tweet tweet={tweet} />
           )):null}
       </div>
     );

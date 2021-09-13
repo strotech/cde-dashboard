@@ -119,10 +119,11 @@ app.post("/api/rules", async (req, res) => {
       console.log(response)
       return response;
     }).catch ((err) => console.error(err))
-    await res.json([{
-      data:{
-        id:1
+    await res.json(tweetList.statuses.map(status=>{
+      return {
+        id: status.id,
+        text: status.text
       }
-    }])
+    }));
   });
 }
