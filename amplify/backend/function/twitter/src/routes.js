@@ -69,7 +69,6 @@ app.get("/api/rules", async (req, res) => {
 
   try {
     const response = await get(requestConfig);
-    console.log("hi",response)
     if (response.statusCode !== 200) {
       if (response.statusCode === 403) {
         res.status(403).send(response.body);
@@ -116,7 +115,6 @@ app.post("/api/rules", async (req, res) => {
         q: `#{hashtag}`,
         result_type: 'recent',
     }).then ((response) => {
-      console.log(response)
       return response;
     }).catch ((err) => console.error(err))
     await res.json(tweetList.statuses.map(status=>{

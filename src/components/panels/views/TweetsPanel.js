@@ -5,7 +5,6 @@ import Tweet from './Tweet'
 const TweetsPanel =(props)=> {
     const {tweets,getTweets } = props;
     const [searchValue,setSearchValue] = useState('');
-    console.log(tweets);
     return (
       <div>
         <form onSubmit={(e) => getTweets(e)}>
