@@ -111,10 +111,10 @@ app.post("/api/rules", async (req, res) => {
   }
 });
 
-  app.get("/api/tweets", async (req, res) => {
-    console.log("hi",req);
+  app.get("/api/tweets/*", async (req, res) => {
+    console.log("hi",req.queryStringParameters.hashtag);
     const tweetList = twitterClient.tweets.search({
-        q: '#HistoryBot',
+        q: `#{req.queryStringParameters.hashtag}`,
         result_type: 'recent',
     }).then ((response) => {
       console.log(response)
