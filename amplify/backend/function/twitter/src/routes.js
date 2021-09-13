@@ -18,8 +18,8 @@ module.exports = async function(app){
 
 //Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
 
-const parameterFilter = (name)=>{
-  return Parameters.filter(param=>param.Name.includes(name));
+const parameterFilter = (paramName)=>{
+  return Parameters.filter(param=>param.Name.includes(paramName))[0].Value;
 }
 
 
@@ -111,15 +111,18 @@ app.post("/api/rules", async (req, res) => {
   }
 });
 
-  app.get("/api/tweets/*", async (req, res) => {
-    console.log("hi",req.queryStringParameters.hashtag);
-    const tweetList = twitterClient.tweets.search({
-        q: `#{req.queryStringParameters.hashtag}`,
+  app.get("/api/tweets/:hashtag", async (req, res) => {
+    const tweetList = await twitterClient.tweets.search({
+        q: `#{hashtag}`,
         result_type: 'recent',
     }).then ((response) => {
       console.log(response)
       return response;
     }).catch ((err) => console.error(err))
-    res.json({data:{id:1,content:tweetList}})
+    await res.json([{
+      data:{
+        id:1
+      }
+    }])
   });
 }

@@ -6,8 +6,8 @@ const TweetsContainer = () => {
  
   const [tweets,setTweets] = useState([]);
   const getTweets = async (searchValue)=>{
-    const tweets  = await API.get('cdedashboardapi',`/api/tweets/${searchValue}`).then(res=>res);
-    setTweets(tweets);
+    const tweetResult  = await API.get('cdedashboardapi',`/api/tweets/${searchValue}`).then(res=>res);
+    setTweets(tweetResult);
   }
 
   return (
