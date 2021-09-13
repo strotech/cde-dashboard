@@ -4,6 +4,10 @@ const request = require("request");
 const post = util.promisify(request.post);
 const get = util.promisify(request.get);
 
+const {TwitterClient} = require('twitter-api-client')
+
+
+
 module.exports = async function(app){
   const { Parameters } =  await (new aws.SSM())
   .getParameters({
@@ -14,16 +18,19 @@ module.exports = async function(app){
 
 //Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
 
+const parameterFilter = (name)=>{
+  return Parameters.filter(param=>param.Name.includes(name));
+}
 
 
 // Twitter specific code 
-const BEARER_TOKEN = Parameters[0].Value;
+const BEARER_TOKEN = parameterFilter('TWITTER_BEARER_TOKEN');
 
 const twitterClient = new TwitterClient({
-  apiKey: Parameters[0].Value,
-  apiSecret: Parameters[1].Value,
-  accessToken: Parameters[2].Value,
-  accessTokenSecret: Parameters[3].Value
+  apiKey: parameterFilter('TWITTER_API_KEY'),
+  apiSecret: parameterFilter('TWITTER_API_SECRET'),
+  accessToken: parameterFilter('TWITTER_ACCESS_TOKEN'),
+  accessTokenSecret: parameterFilter('TWITTER_ACCESS_TOKEN_SECRET')
 })
 
 const rulesURL = new URL(
@@ -104,7 +111,8 @@ app.post("/api/rules", async (req, res) => {
   }
 });
 
-  app.post("/api/tweets", async (req, res) => {
+  app.get("/api/tweets", async (req, res) => {
+    console.log("hi",req);
     const tweetList = twitterClient.tweets.search({
         q: '#HistoryBot',
         result_type: 'recent',

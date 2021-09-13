@@ -21,7 +21,7 @@ const TweetsPanel =(props)=> {
               onChange={e=>setSearchValue(e.target.value)}    
             />
             <div class="input-group-append">
-            <button type="button" className="btn btn-outline-secondary" onClick={(e) => getTweets(e)}>
+            <button type="button" className="btn btn-outline-secondary" onClick={() => getTweets(searchValue)}>
               Get Tweets
             </button>
             </div>
