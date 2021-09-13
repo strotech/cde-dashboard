@@ -31,7 +31,7 @@
             "policyResourceName": "/api/rules"
         },
         {
-            "name": "/api/tweets",
+            "name": "/api/tweets/{hashtag}",
             "lambdaFunction": "twitter",
             "privacy": {
                 "private": true,
@@ -43,7 +43,7 @@
                     "/DELETE"
                 ]
             },
-            "policyResourceName": "/api/tweets"
+            "policyResourceName": "/api/tweets/*"
         }
     ],
     "resourceName": "cdedashboardapi",
@@ -80,5 +80,5 @@
             ]
         }
     ],
-    "uuid": "cab782d1"
+    "uuid": "e38bad36"
 }

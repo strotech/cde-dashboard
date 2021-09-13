@@ -522,7 +522,7 @@
                 }
               },
               
-              "/api/tweets": {
+              "/api/tweets/{hashtag}": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -627,7 +627,7 @@
                   }
                 }
               },
-              "/api/tweets/{proxy+}": {
+              "/api/tweets/{hashtag}/{proxy+}": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -845,7 +845,7 @@
         
         
 
-      "DeploymentAPIGWcdedashboardapicab782d1": {
+      "DeploymentAPIGWcdedashboardapie38bad36": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
