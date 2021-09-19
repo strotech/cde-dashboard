@@ -7,7 +7,7 @@ const TweetsContainer = () => {
   const [tweets,setTweets] = useState({});
   const [loading,isLoading] = useState(false);
   const getTweets = async (searchValue)=>{
-    await API.get('cdedashboardapi','/telegram/covid').then(res=>console.log(res));
+    // await API.get('cdedashboardapi','/telegram/covid').then(res=>console.log(res));
     let tweetResult  = await API.get('cdedashboardapi',`/api/tweets/${searchValue}`).then(res=>{
       isLoading(false);
       return {
