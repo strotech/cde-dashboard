@@ -11,14 +11,18 @@ module.exports = async function(app){
 //Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
 console.log("hiii",Parameters);
 
+const parameterFilter = (paramName)=>{
+  return Parameters.filter(param=>param.Name.includes(paramName))[0].Value;
+}
+
 /**********************
  * Example get method *
  **********************/
 
 app.get('/telegram/covid', async function(req, res) {
-  const botReturn =  await axios.post(`https://api.telegram.org/bot${Parameters[1].Value}/sendMessage`, {
+  const botReturn =  await axios.post(`https://api.telegram.org/bot${parameterFilter("TELEGRAM_TOKEN")}/sendMessage`, {
       "text": "I am telegram bot amplified",
-      "chat_id": Parameters[0].Value
+      "chat_id": parameterFilter("CHAT_CHANNEL_ID")
   },{
       headers:{
           'Content-Type': 'application/json;charset=UTF-8',
