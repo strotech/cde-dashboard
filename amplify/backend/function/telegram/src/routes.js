@@ -9,7 +9,7 @@ module.exports = async function(app){
   .promise();
 
 //Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
-console.log("hiii",Parameters);
+console.log("hiya",Parameters);
 
 const parameterFilter = (paramName)=>{
   return Parameters.filter(param=>param.Name.includes(paramName))[0].Value;
