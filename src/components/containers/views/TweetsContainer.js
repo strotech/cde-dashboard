@@ -4,14 +4,31 @@ import TweetsPanel from '../../panels/views/TweetsPanel'
 
 const TweetsContainer = () => {
  
-  const [tweets,setTweets] = useState([]);
+  const [tweets,setTweets] = useState({});
+  const [loading,isLoading] = useState(false);
   const getTweets = async (searchValue)=>{
-    const tweetResult  = await API.get('cdedashboardapi',`/api/tweets/${searchValue}`).then(res=>res);
+    await API.get('cdedashboardapi','/telegram/covid').then(res=>console.log(res));
+    let tweetResult  = await API.get('cdedashboardapi',`/api/tweets/${searchValue}`).then(res=>{
+      isLoading(false);
+      return {
+        result: res,
+        type: 'success'
+      }
+    });
+    if(tweetResult.length == 0){
+      tweetResult.push({
+        result:[{
+          id: 0,
+          text : 'No tweets found for the search criteria!'
+        }],
+        type: 'warning'
+      })
+    }
     setTweets(tweetResult);
   }
 
   return (
-    <TweetsPanel tweets={tweets} getTweets={getTweets} />
+    <TweetsPanel tweets={tweets} setTweets={setTweets} getTweets={getTweets} isLoading={isLoading} loading={loading} />
   );
 };
 

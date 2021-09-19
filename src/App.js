@@ -5,11 +5,7 @@ import './assets/styles/main.scss';
 
 import AdminLayoutContainer from "./components/containers/layouts/AdminLayoutContainer";
 
-import { withAuthenticator } from '@aws-amplify/ui-react'
-
-
 const App=()=>{
- 
   return(
     <BrowserRouter>
       <Switch>
@@ -20,6 +16,6 @@ const App=()=>{
   );
 }
 
-export default withAuthenticator(App);
+export default App;
 
 

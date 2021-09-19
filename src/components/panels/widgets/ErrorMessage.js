@@ -1,16 +1,14 @@
 import React from "react";
 
-const ErrorMessage = ({ error, styleType }) => {
+const ErrorMessage = ({ error }) => {
   const errorDetails = () => {
-    if (error.details) {
-      return error.details.map(detail => <p key={detail}>{detail}</p>);
-    } else if (error.detail) {
-      return <p key={error.detail}>{error.detail}</p>;
+    if (error && error.text) {
+      return <p key={error.text}>{error.text}</p>
     }
   };
 
   const errorType = () => {
-    if (error.type) {
+    if (error && error.type) {
       return (
         <em>
           See
@@ -25,11 +23,13 @@ const ErrorMessage = ({ error, styleType }) => {
   };
 
   return (
-    <div className={`alert alert-${styleType}`} role="alert">
-      <div className="header">{error.title}</div>
+   
+    <div className={`alert alert-${error.type}`} role="alert">
+      <div className="header">{error.text}</div>
       {errorDetails()}
       {errorType()}
     </div>
+     
   );
 };
 

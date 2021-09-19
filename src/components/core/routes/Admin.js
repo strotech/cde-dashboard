@@ -11,9 +11,9 @@ const routes = [
         layout: "/admin",
     },
     {
-        path: "/rules",
-        name: "Rules",
-        icon: "nc-icon nc-circle-09",
+        path: "/tweets",
+        name: "Tweets",
+        icon: "nc-icon nc-quote",
         component: TweetsContainer,
         layout: "/admin",
     },
