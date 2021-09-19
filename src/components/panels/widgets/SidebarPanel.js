@@ -46,7 +46,7 @@ const SidebarPanel=(props)=> {
               />
             </div>
           </a>
-          <a className="simple-text" href="http://www.creative-tim.com">
+          <a className="simple-text" href="/admin/about">
             DevX Prime
           </a>
         </div>

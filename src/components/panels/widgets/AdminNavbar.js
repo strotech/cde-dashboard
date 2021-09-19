@@ -2,8 +2,7 @@ import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 
 
-const AdminNavbar=(props)=> {
-   
+const AdminNavbar=()=> {
     return (
     <Navbar className="navbar-custom" expand="lg">
       <Container fluid>
@@ -17,7 +16,7 @@ const AdminNavbar=(props)=> {
           <Nav className="nav mr-auto" navbar>
             <Nav.Item>
               <Nav.Link                
-                href="#pablo"
+                href="/"
                 onClick={(e) => e.preventDefault()}
                 className="m-0"
               >                
@@ -30,10 +29,9 @@ const AdminNavbar=(props)=> {
             <Nav.Item>
               <Nav.Link
                 className="m-0"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
+                href="/admin/about"
               >
-                <span className="no-icon">Log out</span>
+                <span className="no-icon">About</span>
               </Nav.Link>
             </Nav.Item>
           </Nav>

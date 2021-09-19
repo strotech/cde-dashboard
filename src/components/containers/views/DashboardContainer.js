@@ -7,9 +7,9 @@ import DashboardPanel from '../../panels/views/DashboardPanel'
 API.configure(config);
 
 const DashboardContainer =()=> {
-    useEffect(()=>{
-      API.get('cdedashboardapi','/telegram/covid').then(res=>console.log(res));
-    },[]);
+    // useEffect(()=>{
+    //   API.get('cdedashboardapi','/telegram/covid').then(res=>console.log(res));
+    // },[]);
     return (
         <DashboardPanel />
     );
